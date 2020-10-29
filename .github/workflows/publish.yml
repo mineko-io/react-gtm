@@ -1,0 +1,85 @@
+name: Release & Publish
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  default:
+    if: "!contains(github.event.head_commit.message, 'chore(release)')" # don't run if it is a release commit
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Prepare: Setup node'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Prepare: Install dependencies'
+        run: make install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 'Prepare: Run tests'
+        run: make test
+
+      - name: 'Prepare: Analyse code base'
+        run: make analyse
+
+      - name: 'Build'
+        run: make build
+
+      - name: 'Prepare: Bump version and push tag'
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3.3.0
+        with:
+          github-token: ${{ github.token }}
+          skip-on-empty: 'true'
+          git-message: 'chore(release): {version}'
+          tag-prefix: 'v'
+
+      - name: 'Release: Publish to package registry'
+        if: ${{ steps.changelog.outputs.skipped == 'false'}}
+        run: make publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 'Release: Create Release on Github'
+        id: create_release
+        if: ${{ steps.changelog.outputs.skipped == 'false'}}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
+          draft: false
+          prerelease: false
+
+      - name: 'Release: Zip dist folder'
+        if: ${{ steps.changelog.outputs.skipped == 'false'}}
+        run: zip -r dist.zip dist
+
+      - name: 'Release: Upload Release artifact'
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist.zip
+          asset_name: dist.zip
+          asset_content_type: application/zip
+
+      - name: Slack Notification
+        if: ${{ steps.changelog.outputs.skipped == 'false'}}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        uses: Ilshidur/action-slack@master
+        with:
+          args: "*[${{ github.repository }}] Release ${{ steps.changelog.outputs.tag }}*: ${{ steps.create_release.outputs.html_url }} \n ${{ steps.changelog.outputs.clean_changelog }}"

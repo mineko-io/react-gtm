@@ -1,0 +1,17 @@
+.travis.yml
+tsconfig*
+.nycrc*
+.eslint*
+.babel*
+dist/test
+src
+test
+.nyc_output
+coverage
+webpack.config.js
+setupTests.ts
+.github
+*.stories.*
+.gitmodules
+.git
+Makefile

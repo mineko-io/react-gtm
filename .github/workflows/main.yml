@@ -1,0 +1,29 @@
+name: Tests&Build
+on: push
+jobs:
+  default:
+    name: Default
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: make install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Run tests
+        run: make test
+
+      - name: Analyse code base
+        run: make analyse
+
+      - name: Build
+        run: make build

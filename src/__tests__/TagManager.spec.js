@@ -3,7 +3,7 @@ import TagManager from '../TagManager'
 describe('TagManager', () => {
   it('should render tagmanager', () => {
     TagManager.initialize({gtmId: 'GTM-000000'})
-    expect(window.dataLayer).toHaveLength(1)
+    expect(window.dataLayer).toHaveLength(3)
   })
 
   it('should render datalayer', () => {
@@ -14,6 +14,6 @@ describe('TagManager', () => {
       }
     }
     TagManager.initialize(gtmArgs)
-    expect(window.dataLayer).toHaveLength(1)
+    expect(window.dataLayer).toHaveLength(3)
   })
 })
