@@ -24,6 +24,9 @@
   "bugs": {
     "url": "https://github.com/alinemorelli/react-gtm/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "",
   "keywords": [
     "react",
