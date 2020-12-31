@@ -1,3 +1,12 @@
+## [2.2.1](https://github.com/alinemorelli/react-gtm/compare/v2.2.0...v2.2.1) (2020-12-31)
+
+
+### Bug Fixes
+
+* ga consent mode as separate script tag ([e4a7a4e](https://github.com/alinemorelli/react-gtm/commit/e4a7a4e6fd9cc698d42db114b2ee4550d1d72401))
+
+
+
 # [2.2.0](https://github.com/alinemorelli/react-gtm/compare/v2.0.0...v2.2.0) (2020-10-29)
 
 
