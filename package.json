@@ -1,6 +1,6 @@
 {
   "name": "@mineko-io/react-gtm-module",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "React Google Tag Manager Module",
   "main": "dist/index.js",
   "scripts": {

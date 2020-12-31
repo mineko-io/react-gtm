@@ -1,3 +1,12 @@
+## [2.2.2](https://github.com/alinemorelli/react-gtm/compare/v2.2.1...v2.2.2) (2020-12-31)
+
+
+### Bug Fixes
+
+* order of script tags ([7002f99](https://github.com/alinemorelli/react-gtm/commit/7002f99692689782a7eee90202829e207ce13516))
+
+
+
 ## [2.2.1](https://github.com/alinemorelli/react-gtm/compare/v2.2.0...v2.2.1) (2020-12-31)
 
 
