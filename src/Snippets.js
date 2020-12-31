@@ -17,11 +17,11 @@ const Snippets = {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
     `
 
     const script = `
-      gtag('set', 'ads_data_redaction', true);
-      gtag('set', 'url_passthrough', true);
       (function(w,d,s,l,i){w[l]=w[l]||[];
         w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js', ${JSON.stringify(events).slice(1, -1)}});
         var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
