@@ -1,3 +1,12 @@
+## [2.2.3](https://github.com/alinemorelli/react-gtm/compare/v2.2.2...v2.2.3) (2020-12-31)
+
+
+### Bug Fixes
+
+* gtag error ([8f202b9](https://github.com/alinemorelli/react-gtm/commit/8f202b930fabf35497b8d76c78d20fd5f4665586))
+
+
+
 ## [2.2.2](https://github.com/alinemorelli/react-gtm/compare/v2.2.1...v2.2.2) (2020-12-31)
 
 
