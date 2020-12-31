@@ -13,15 +13,13 @@ const Snippets = {
       <iframe src="https://www.googletagmanager.com/ns.html?id=${id}${gtm_auth}${gtm_preview}&gtm_cookies_win=x"
         height="0" width="0" style="display:none;visibility:hidden" id="tag-manager"></iframe>`
   
-    const script = `
+    const consentScript = `
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-          dataLayer.push(arguments);
-      }
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied'
-      });
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
+    `
+
+    const script = `
       gtag('set', 'ads_data_redaction', true);
       gtag('set', 'url_passthrough', true);
       (function(w,d,s,l,i){w[l]=w[l]||[];
@@ -35,6 +33,7 @@ const Snippets = {
   
     return {
       iframe,
+      consentScript,
       script,
       dataLayerVar
     }

@@ -15,6 +15,12 @@ const TagManager = {
       return noscript
     }
 
+    const consentScript = () => {
+      const script = document.createElement('script')
+      script.innerHTML = snippets.consentScript
+      return script
+    }
+
     const script = () => {
       const script = document.createElement('script')
       script.innerHTML = snippets.script
@@ -26,6 +32,7 @@ const TagManager = {
     return {
       noScript,
       script,
+      consentScript,
       dataScript
     }
   },
@@ -39,6 +46,7 @@ const TagManager = {
       preview
     })
     if (dataLayer) document.head.appendChild(gtm.dataScript)
+    document.head.insertBefore(gtm.consentScript(), document.head.childNodes[0])
     document.head.insertBefore(gtm.script(), document.head.childNodes[0])
     document.body.insertBefore(gtm.noScript(), document.body.childNodes[0])
   },
