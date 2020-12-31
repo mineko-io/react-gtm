@@ -1,3 +1,12 @@
+## [2.2.4](https://github.com/alinemorelli/react-gtm/compare/v2.2.3...v2.2.4) (2020-12-31)
+
+
+### Bug Fixes
+
+* execution order ([f49ddae](https://github.com/alinemorelli/react-gtm/commit/f49ddaef296acfb4fb02e9bd380f9b973b63cf35))
+
+
+
 ## [2.2.3](https://github.com/alinemorelli/react-gtm/compare/v2.2.2...v2.2.3) (2020-12-31)
 
 
@@ -40,10 +49,6 @@
 ### Features
 
 * **consent_mode:** added init of ga consent mode ([18cb56b](https://github.com/alinemorelli/react-gtm/commit/18cb56bf71aa719f95f1cbfd7a3cf9b35ccd6389))
-
-
-
-# 2.0.0 (2018-03-21)
 
 
 
