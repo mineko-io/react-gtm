@@ -1,3 +1,12 @@
+## [2.2.6](https://github.com/alinemorelli/react-gtm/compare/v2.2.5...v2.2.6) (2021-03-10)
+
+
+### Bug Fixes
+
+* removed additional consent mode settings ([939a906](https://github.com/alinemorelli/react-gtm/commit/939a906ff96ed5b499338ab661dc2d4d5ef17490))
+
+
+
 ## [2.2.5](https://github.com/alinemorelli/react-gtm/compare/v2.2.4...v2.2.5) (2020-12-31)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * order of script tags ([7002f99](https://github.com/alinemorelli/react-gtm/commit/7002f99692689782a7eee90202829e207ce13516))
-
-
-
-## [2.2.1](https://github.com/alinemorelli/react-gtm/compare/v2.2.0...v2.2.1) (2020-12-31)
-
-
-### Bug Fixes
-
-* ga consent mode as separate script tag ([e4a7a4e](https://github.com/alinemorelli/react-gtm/commit/e4a7a4e6fd9cc698d42db114b2ee4550d1d72401))
 
 
 
