@@ -13,17 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alinemorelli/react-gtm"
+    "url": "https://github.com/mineko-io/react-gtm"
   },
   "author": {
     "name": "Aline Morelli",
-    "email": "aline.morelliw@gmail.com",
-    "url": "https://github.com/alinemorelli"
+    "email": "aline.morelliw@gmail.com"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alinemorelli/react-gtm/issues"
-  },
   "publishConfig": {
     "access": "public"
   },
